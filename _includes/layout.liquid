@@ -1,22 +1,23 @@
 ---
 title: 11ty Boilerplate
 ---
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="/styles/screen.css">
-</head>
-<body>
-  <nav>
-    <ul>
-      <li><a href="/" title="Go home">Home</a></li>
-      <li><a href="/about/" title="About the boilerplate">About</a></li>
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link href="/styles/output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/gh/hankhank10/alpine-fetch@main/alpine-fetch.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  </head>
+  <body class="pr-44 pl-44 bg-orange-50">
+    <nav>
+      <ul class="flex justify-end">
+        <li class="p-3 text-lg"><a href="/" title="Go home">Home</a></li>
+        <li class="p-3 text-lg"><a href="/about/" title="AI Tool">AI Tool</a></li>
+      </ul>
+    </nav>
     {{ content }}
-</body>
+  </body>
 </html>

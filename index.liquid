@@ -1,7 +1,32 @@
 ---
 layout: layout.liquid
-title: 11ty Boilerplate
+title: MI449 Lab 7.5
 ---
+<h1 class="text-4xl font-bold text-orange-500 pb-16">Recipes</h1>
 
-<h1>Yet Another 11ty <strong>Boilerplate</strong></h1>
-<img alt="pine" src="/images/pine.png" width="50" />
+<div
+  x-data="
+    {
+      recipes: $fetchjson('https://dummyjson.com/recipes?limit=3&select=name,image,ingredients,instructions', 'recipes')
+    }
+  "
+>
+  <template x-for="recipe in recipes" :key="recipe.id">
+    <div class="recipes pb-16">
+      <h2 x-text="recipe.name" class="text-2xl font-semibold text-center pb-6"></h2>
+      <img :src="recipe.image" alt="recipe image" class="w-full h-auto pb-6">
+      <div class="flex justify-between">
+        <ul class="list-disc pl-4">
+          <template x-for="ingredient in recipe.ingredients" :key="ingredient">
+            <li x-text="ingredient"></li>
+          </template>
+        </ul>
+        <ul class="list-decimal">
+          <template x-for="instruction in recipe.instructions" :key="instruction">
+            <li x-text="instruction"></li>
+          </template>
+        </ul>
+      </div>
+    </div>
+  </template>
+</div>
